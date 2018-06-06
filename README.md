@@ -19,7 +19,7 @@
 Then import it.
 
 ```js
-import { bind, clear } from ''size-sensor';
+import { bind, clear } from 'size-sensor';
 ```
 
 or import it by `script` in HTML, then get `sizeSensor` on window.
@@ -36,7 +36,7 @@ or import it by `script` in HTML, then get `sizeSensor` on window.
  - **bind & unbind**
 
 ```js
-import { bind, clear } from ''size-sensor';
+import { bind, clear } from 'size-sensor';
 
 // bind the event on element, will get the `unbind` function
 const unbind1 = bind(document.querySelector('.container'), size => {
@@ -55,7 +55,7 @@ unbind1();
  - **clear**
 
 ```js
-import { bind, clear } from ''size-sensor';
+import { bind, clear } from 'size-sensor';
 
 /*
  * // bind the resize event.
@@ -88,9 +88,7 @@ Clear all the object and resize event on element.
 
 ## Reference
 
-Rewrite from [KyleAMathews/element-resize-event](https://github.com/KyleAMathews/element-resize-event), will be used on [hustcc/echarts-for-react](https://github.com/hustcc/echarts-for-react).
-
-Online demo click [here](http://git.hust.cc/size-sensor).
+Online demo click [here](http://git.hust.cc/size-sensor). Rewrite from [KyleAMathews/element-resize-event](https://github.com/KyleAMathews/element-resize-event), will be used on [hustcc/echarts-for-react](https://github.com/hustcc/echarts-for-react).
 
 
 
