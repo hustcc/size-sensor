@@ -1,6 +1,6 @@
 # size-sensor
 
-> DOM element size sensor which will callback when the element size changed. `Only 800 b`!
+> DOM element size sensor which will callback when the element size changed.
 >
 > DOM 元素尺寸监听器，当元素尺寸变化的时候，将会触发回调函数！
 
