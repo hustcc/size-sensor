@@ -101,7 +101,9 @@ export class Sensor {
       this.sensor.contentDocument.defaultView.removeEventListener('resize', this.resizeListener);
       // 移除 dom
       this.sensor.parentNode.removeChild(this.sensor);
+      // 初始化
       this.sensor = undefined;
+      this.listeners = [];
     }
   }
 }
