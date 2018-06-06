@@ -13,3 +13,5 @@ src
 .idea
 npm-debug.*
 index.html
+rollup.config.js
+
