@@ -11,7 +11,7 @@
   },
   "size-limit": [
     {
-      "limit": "800 B",
+      "limit": "1 KB",
       "path": "dist/size-sensor.min.js"
     }
   ],

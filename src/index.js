@@ -1,5 +1,5 @@
 /**
- * Created by hustcc on 18/6/9.
+ * Created by hustcc on 18/6/9.[高考时间]
  * Contract: i@hust.cc
  */
 
@@ -7,8 +7,8 @@ import { getSensor, removeSensor } from './sensorPool';
 
 /**
  * 对外暴露的 bind 方法
- * @param {*} element 
- * @param {*} cb 
+ * @param {*} element
+ * @param {*} cb
  */
 export const bind = (element, cb) => {
   const sensor = getSensor(element);
