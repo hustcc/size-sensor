@@ -1,58 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>size-sensor: DOM element size sensor which will callback when size changed.</title>
-	<style>
-		.root {
-			width: 80%;
-			max-width: 1000px;
-			height: 100%;
-			margin: 0 auto;
-			padding: 8px;
-		}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <title>size-sensor: DOM element size sensor which will callback when size changed.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-		h1 {
-			font-size: 16px;
-			margin: 50px 0;
-		}
+    html, body {
+      height: 100%;
+    }
 
-		.container {
-			width: 100%;
-			height: 300px;
-			border: solid 1px #ccc;
-			margin: 100px auto;
-			box-sizing: border-box;
-		}
+    .root {
+      height: 100%;
+    }
 
-		.size-indicator {
-			position: absolute;
-			right: 4px;
-			bottom: 4px;
-			font-size: 10px;
-			color: #ccc;
-		}
-	</style>
+    .root .item {
+      display: flex;
+      display: -webkit-flex;
+      align-items: center;
+      -webkit-align-items: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+
+      height: 25%;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      background-color: #cae0c1;
+      flex: 1;
+      -webkit-flex: 1;
+    }
+
+    /* 颜色生成：https://atool.vip/color */
+    .item-1 {
+      background-color: #7fc9ac;
+    }
+    .item-2 {
+      background-color: #85cbae;
+    }
+    .item-3 {
+      background-color: #8bcdaf;
+    }
+    .item-4 {
+      background-color: #91cfb1;
+    }
+    .item-5 {
+      background-color: #9ed2b5;
+    }
+    .item-6 {
+      background-color: #a4d4b6;
+    }
+    .item-7 {
+      background-color: #aad6b8;
+    }
+    .item-8 {
+      background-color: #b0d8ba;
+    }
+    .item-9 {
+      background-color: #b6dabc;
+    }
+    .item-10 {
+      background-color: #bcdcbd;
+    }
+    .item-11 {
+      background-color: #c2debf;
+    }
+    .item-12 {
+      background-color: #c9dfc1;
+    }
+    .item-13 {
+      background-color: #cfe1c3;
+    }
+    .item-14 {
+      background-color: #d5e3c4;
+    }
+    .item-15 {
+      background-color: #dbe5c6;
+    }
+
+    .size-indicator {
+      position: absolute;
+      right: 4px;
+      bottom: 4px;
+      font-size: 10px;
+      color: #ccc;
+    }
+
+    .github-url {
+      color: #a6619c;
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-	<div class="root">
-		<h1><a href="https://github.com/hustcc/size-sensor">size-sensor</a>: DOM element size sensor which will callback when the element size changed.</h1>
-		<div class="container">
-			<div class="size-indicator"></div>
-		</div>
-	</div>
+  <div class="root">
+    <div class="item">
+      <div class="container item-1">
+        <div class="size-indicator"></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="container item-2">
+        <div class="size-indicator"></div>
+      </div>
+      <div class="container item-3">
+        <div class="size-indicator"></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="container item-4">
+        <div class="size-indicator"></div>
+      </div>
+      <div class="container item-5">
+        <div class="size-indicator"></div>
+      </div>
+      <div class="container item-6">
+        <div class="size-indicator"></div>
+      </div>
+      <div class="container item-7">
+        <div class="size-indicator"></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="container item-8">
+        <div class="size-indicator"></div>
+      </div>
+      <div class="container item-9">
+        <div class="size-indicator"></div>
+      </div>
+      <div class="container item-10">
+        <div class="size-indicator"></div>
+      </div>
+      <div class="container item-11">
+        <div class="size-indicator"></div>
+      </div>
+      <div class="container item-12">
+        <div class="size-indicator"></div>
+      </div>
+      <div class="container item-13">
+        <div class="size-indicator"></div>
+      </div>
+      <div class="container item-14">
+        <div class="size-indicator"></div>
+      </div>
+      <div class="container item-15">
+        <div class="size-indicator"></div>
+      </div>
+    </div>
+  </div>
+  <a class="github-url" href="https://github.com/hustcc/size-sensor">size-sensor</a>
 
-	<script src="./dist/size-sensor.min.js" type="application/javascript"></script>
-	<script>
-		var sizeNode = document.querySelector('.size-indicator');
-
-    var unbind = sizeSensor.bind(document.querySelector('.container'), function(size) {
-			sizeNode.innerHTML = size.width + ' x ' + size.height;
-			sizeNode.style.color = 'red';
-			setTimeout(function() {
-				sizeNode.style.color = 'black';
-			}, 500);
-    });
-	</script>
+  <script src="./dist/size-sensor.min.js" type="application/javascript"></script>
+  <script>
+    function whenResize(element) {
+      return function(size) {
+        const ele = element.querySelector('.size-indicator');
+        ele.innerHTML = size.width.replace('px', '') + ' x ' + size.height.replace('px', '');
+        ele.style.color = 'red';
+        setTimeout(function() {
+          ele.style.color = 'black';
+        }, 500);
+      }
+    }
+    var unbinds = [];
+    for (var i = 0; i < 15; i ++) {
+      var ele = document.querySelector('.item-' + (i + 1));
+      unbinds.push(sizeSensor.bind(ele, whenResize(ele)));
+    }
+  </script>
 </body>
 </html>
