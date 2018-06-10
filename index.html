@@ -164,7 +164,7 @@
   <script>
     function whenResize(element) {
       return function(size) {
-        const ele = element.querySelector('.size-indicator');
+        var ele = element.querySelector('.size-indicator');
         ele.innerHTML = size.width.replace('px', '') + ' x ' + size.height.replace('px', '');
         ele.style.color = 'red';
         setTimeout(function() {
