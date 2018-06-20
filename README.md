@@ -39,11 +39,11 @@ or import it by `script` in HTML, then get `sizeSensor` on window.
 import { bind, clear } from 'size-sensor';
 
 // bind the event on element, will get the `unbind` function
-const unbind1 = bind(document.querySelector('.container'), size => {
+const unbind1 = bind(document.querySelector('.container'), element => {
   // do what you want to to.
 });
 
-const unbind2 = bind(document.querySelector('.container'), size => {
+const unbind2 = bind(document.querySelector('.container'), element => {
   // do what you want to to.
 });
 

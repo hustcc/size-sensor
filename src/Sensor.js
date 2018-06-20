@@ -49,14 +49,9 @@ export class Sensor {
    * 统一触发 listeners
    */
   resizeListener = debounce(() => {
-    const { width, height } = getComputedStyle(this.element);
-
     // 依次触发执行
     this.listeners.forEach(listener => {
-      listener({
-        width,
-        height,
-      });
+      listener(this.element);
     })
   });
 
