@@ -88,7 +88,7 @@ Clear all the object and resize event on element.
 
 ## Reference
 
-Online demo click [here](http://git.hust.cc/size-sensor). Rewrite from [KyleAMathews/element-resize-event](https://github.com/KyleAMathews/element-resize-event), will be used on [hustcc/echarts-for-react](https://github.com/hustcc/echarts-for-react).
+Online demo click [here](https://git.hust.cc/size-sensor). Rewrite from [KyleAMathews/element-resize-event](https://github.com/KyleAMathews/element-resize-event), will be used on [hustcc/echarts-for-react](https://github.com/hustcc/echarts-for-react).
 
 
 
