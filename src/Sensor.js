@@ -4,7 +4,6 @@
  */
 
 import debounce from './debounce';
-import { isIE } from './utils';
 import { SensorStyle, SensorClassName } from './constant';
 
 export class Sensor {
@@ -39,7 +38,7 @@ export class Sensor {
 
     // 添加到 dom 结构中
     this.element.appendChild(obj);
-    // 对于 ie 需要滞后，否则白屏
+    // 对于 ie 需要滞后，否则白屏，所以放到后面
     obj.data = 'about:blank';
     return obj;
   };
