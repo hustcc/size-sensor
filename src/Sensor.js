@@ -4,8 +4,8 @@
  */
 
 import debounce from './debounce';
+import { isIE } from './utils';
 import { SensorStyle, SensorClassName } from './constant';
-
 
 export class Sensor {
   constructor(element) {
@@ -22,26 +22,25 @@ export class Sensor {
    * @returns {HTMLObjectElement}
    */
   createSensor = () => {
-    const obj = document.createElement('object');
-    obj.setAttribute('style', SensorStyle);
-    obj.setAttribute('class', SensorClassName);
-    obj.type = 'text/html';
-    obj.data = 'about:blank';
-
     // 调整样式
     if (getComputedStyle(this.element).position === 'static') {
       this.element.style.position = 'relative'
     }
 
+    const obj = document.createElement('object');
     obj.onload = () => {
       obj.contentDocument.defaultView.addEventListener('resize', this.resizeListener);
       // 直接触发一次 resize
       this.resizeListener();
     };
+    obj.setAttribute('style', SensorStyle);
+    obj.setAttribute('class', SensorClassName);
+    obj.type = 'text/html';
 
     // 添加到 dom 结构中
     this.element.appendChild(obj);
-
+    // 对于 ie 需要滞后，否则白屏
+    obj.data = 'about:blank';
     return obj;
   };
 
