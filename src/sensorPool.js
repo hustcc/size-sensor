@@ -4,7 +4,7 @@
  */
 
 import id from './id';
-import { Sensor } from './Sensor';
+import { createSensor } from './sensor';
 import { SizeSensorId } from './constant';
 
 /**
@@ -30,7 +30,7 @@ export const getSensor = element => {
   const newId = id();
   element.setAttribute(SizeSensorId, newId);
 
-  const sensor = new Sensor(element);
+  const sensor = createSensor(element);
   // 添加到池子中
   Sensors[newId] = sensor;
 

@@ -1,47 +1,35 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.createSensor = undefined;
-
-var _debounce = require('./debounce');
-
-var _debounce2 = _interopRequireDefault(_debounce);
-
-var _constant = require('./constant');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 /**
  * Created by hustcc on 18/6/9.
  * Contract: i@hust.cc
  */
 
-var createSensor = exports.createSensor = function createSensor(element) {
+import debounce from './debounce';
+import { SensorStyle, SensorClassName } from './constant';
+
+export const createSensor = element => {
   // 感应器
-  var sensor = undefined;
+  let sensor = undefined;
   // callback
-  var listeners = [];
+  let listeners = [];
 
   /**
    * 创建 sensor 的 object DOM
    * @returns {HTMLObjectElement}
    */
-  var newSensor = function newSensor() {
+  const newSensor = () => {
     // 调整样式
     if (getComputedStyle(element).position === 'static') {
-      element.style.position = 'relative';
+      element.style.position = 'relative'
     }
 
-    var obj = document.createElement('object');
-    obj.onload = function () {
+    const obj = document.createElement('object');
+    obj.onload = () => {
       obj.contentDocument.defaultView.addEventListener('resize', resizeListener);
       // 直接触发一次 resize
       resizeListener();
     };
-    obj.setAttribute('style', _constant.SensorStyle);
-    obj.setAttribute('class', _constant.SensorClassName);
+    obj.setAttribute('style', SensorStyle);
+    obj.setAttribute('class', SensorClassName);
     obj.type = 'text/html';
 
     // 添加到 dom 结构中
@@ -54,18 +42,18 @@ var createSensor = exports.createSensor = function createSensor(element) {
   /**
    * 统一触发 listeners
    */
-  var resizeListener = (0, _debounce2.default)(function () {
+  const resizeListener = debounce(() => {
     // 依次触发执行
-    listeners.forEach(function (listener) {
+    listeners.forEach(listener => {
       listener(element);
-    });
+    })
   });
 
   /**
    * 监听某一个 callback
    * @param cb
    */
-  var bind = function bind(cb) {
+  const bind = cb => {
     // 如果不存在 sensor，则创建一个 object
     if (!sensor) {
       sensor = newSensor();
@@ -79,7 +67,7 @@ var createSensor = exports.createSensor = function createSensor(element) {
   /**
    * 完全 destroy
    */
-  var destroy = function destroy() {
+  const destroy = () => {
     if (sensor && sensor.parentNode) {
       // 移除事件
       sensor.contentDocument.defaultView.removeEventListener('resize', resizeListener);
@@ -95,8 +83,8 @@ var createSensor = exports.createSensor = function createSensor(element) {
    * 取消绑定
    * @param cb
    */
-  var unbind = function unbind(cb) {
-    var idx = listeners.indexOf(cb);
+  const unbind = cb => {
+    const idx = listeners.indexOf(cb);
     if (idx !== -1) {
       listeners.splice(idx, 1);
     }
@@ -109,9 +97,9 @@ var createSensor = exports.createSensor = function createSensor(element) {
   };
 
   return {
-    element: element,
-    bind: bind,
-    destroy: destroy,
-    unbind: unbind
+    element,
+    bind,
+    destroy,
+    unbind,
   };
 };
