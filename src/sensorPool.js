@@ -4,7 +4,7 @@
  */
 
 import id from './id';
-import { createSensor } from './sensor';
+import { createSensor } from './sensors';
 import { SizeSensorId } from './constant';
 
 /**

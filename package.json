@@ -34,6 +34,7 @@
     "rimraf": "^2.6.2",
     "rollup": "^0.58.1",
     "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-uglify": "^3.0.0",
     "size-limit": "^0.18.2"
   },
