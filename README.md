@@ -86,9 +86,25 @@ Clear all the object and resize event on element.
 
 
 
+## Strategies
+
+The size sensor strategies include:
+
+ - `ResizeObserver`: use [resizeObserver](src/sensors/resizeObserver.js) to observe element's size.
+ - `object`: use [object](src/sensors/object.js) document's resize event.
+
+If `ResizeObserver` exists, use it, else use `object` as default.
+
+
+
 ## Reference
 
-Online demo click [here](https://git.hust.cc/size-sensor). Rewrite from [KyleAMathews/element-resize-event](https://github.com/KyleAMathews/element-resize-event), will be used on [hustcc/echarts-for-react](https://github.com/hustcc/echarts-for-react).
+Online demo click [here](https://git.hust.cc/size-sensor). Rewritten and optimized from [KyleAMathews/element-resize-event](https://github.com/KyleAMathews/element-resize-event).
+
+Used By:
+
+ - [hustcc/echarts-for-react](https://github.com/hustcc/echarts-for-react)
+ - [hustcc/canvas-nest.js](https://github.com/hustcc/canvas-nest.js)
 
 
 
