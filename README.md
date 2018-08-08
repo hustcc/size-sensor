@@ -105,6 +105,7 @@ Used By:
 
  - [hustcc/echarts-for-react](https://github.com/hustcc/echarts-for-react)
  - [hustcc/canvas-nest.js](https://github.com/hustcc/canvas-nest.js)
+ - [hustcc/gantt-for-react](https://github.com/hustcc/gantt-for-react)
 
 
 
