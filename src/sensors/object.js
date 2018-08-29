@@ -69,8 +69,10 @@ export const createSensor = element => {
    */
   const destroy = () => {
     if (sensor && sensor.parentNode) {
-      // 移除事件
-      sensor.contentDocument.defaultView.removeEventListener('resize', resizeListener);
+      if (sensor.contentDocument) {
+        // 移除事件
+        sensor.contentDocument.defaultView.removeEventListener('resize', resizeListener);
+      }
       // 移除 dom
       sensor.parentNode.removeChild(sensor);
       // 初始化
