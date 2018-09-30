@@ -3,6 +3,7 @@
   "version": "0.2.1",
   "description": "DOM element size sensor which will callback when size changed.",
   "main": "lib/index.js",
+  "types": "index.d.ts",
   "scripts": {
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "build:umd": "rimraf ./dist && cross-env NODE_ENV=rollup rollup -c",
