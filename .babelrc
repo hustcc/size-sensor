@@ -9,12 +9,15 @@
           }
         ]
       ],
-      "plugins": []
+      "plugins": [
+        "version"
+      ]
     },
     "babel": {
       "presets": ["env"],
       "plugins": [
-        "add-module-exports"
+        "add-module-exports",
+        "version"
       ]
     }
   }
