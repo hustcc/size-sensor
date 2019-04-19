@@ -32,4 +32,4 @@ export const clear = element => {
   removeSensor(sensor);
 };
 
-export const version = __VERSION__;
+export const ver = '__VERSION__';

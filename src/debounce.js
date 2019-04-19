@@ -3,7 +3,7 @@
  * Contract: i@hust.cc
  */
 
-export default (fn, delay = 30) => {
+export default (fn, delay = 60) => {
   let timer = null;
 
   return function (...args) {
