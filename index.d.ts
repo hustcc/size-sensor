@@ -1,8 +1,9 @@
 declare namespace sizeSensor {
-    export const bind: (
-        element: HTMLElement | null,
-        cb: (element: HTMLElement | null) => void
+    type StyledElement = Element & ElementCSSInlineStyle;
+    export const bind: <T extends StyledElement = HTMLElement>(
+        element: T | null,
+        cb: (element: T | null) => void
     ) => () => void;
-    export const clear: (element: HTMLElement | null) => void;
+    export const clear: (element: StyledElement | null) => void;
 }
 export = sizeSensor;
