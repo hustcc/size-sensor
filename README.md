@@ -90,10 +90,10 @@ Clear all the object and resize event on element.
 
 The size sensor strategies include:
 
- - ~~~`ResizeObserver`: ~~~use [resizeObserver](src/sensors/resizeObserver.js) to observe element's size.~~~
+ - ~~`ResizeObserver`: use [resizeObserver](src/sensors/resizeObserver.js) to observe element's size.~~
  - `object`: use [object](src/sensors/object.js) document's resize event.
 
-~~~If `ResizeObserver` exists, use it, else use `object` as default.~~~
+~~If `ResizeObserver` exists, use it, else use `object` as default.~~
 
 
 
