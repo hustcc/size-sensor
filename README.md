@@ -9,6 +9,8 @@
 [![npm](https://img.shields.io/npm/dm/size-sensor.svg)](https://www.npmjs.com/package/size-sensor)
 [![gzip](http://img.badgesize.io/https://unpkg.com/size-sensor/dist/size-sensor.min.js?compression=gzip)](https://unpkg.com/size-sensor/dist/size-sensor.min.js)
 
+ - [rc-size-sensor](https://www.npmjs.com/package/rc-size-sensor): React component wrapper.
+
 
 
 ## Install
