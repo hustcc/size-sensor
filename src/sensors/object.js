@@ -4,7 +4,7 @@
  */
 
 import debounce from '../debounce';
-import { SensorStyle, SensorClassName } from '../constant';
+import { SensorStyle, SensorClassName, SensorTabIndex } from '../constant';
 
 export const createSensor = element => {
   // 感应器
@@ -30,6 +30,7 @@ export const createSensor = element => {
     };
     obj.setAttribute('style', SensorStyle);
     obj.setAttribute('class', SensorClassName);
+    obj.setAttribute('tabindex', SensorTabIndex);
     obj.type = 'text/html';
 
     // 添加到 dom 结构中
