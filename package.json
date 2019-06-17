@@ -1,6 +1,6 @@
 {
   "name": "size-sensor",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "DOM element size sensor which will callback when size changed.",
   "main": "lib/index.js",
   "types": "index.d.ts",
