@@ -3,7 +3,7 @@
     "rollup": {
       "presets": [
         [
-          "env",
+          "@babel/env",
           {
             "modules": false
           }
@@ -14,9 +14,8 @@
       ]
     },
     "babel": {
-      "presets": ["env"],
+      "presets": ["@babel/env"],
       "plugins": [
-        "add-module-exports",
         "version"
       ]
     }

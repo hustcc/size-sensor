@@ -3,7 +3,7 @@
  * Contract: i@hust.cc
  */
 
-import uglify from 'rollup-plugin-uglify';
+import { uglify } from 'rollup-plugin-uglify';
 import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 
@@ -21,7 +21,7 @@ export default {
     }),
     uglify({
       output: { comments: false },
-      compress: { warnings: false }
+      compress: {}
     }),
   ],
 };
