@@ -1,4 +1,4 @@
-# size-sensor
+# [size-sensor](https://git.hust.cc/size-sensor/)
 
 > DOM element size sensor which will callback when the element size changed.
 >
@@ -93,14 +93,14 @@ Clear all the object and resize event on element.
 
 The size sensor strategies include:
 
- - ~~`ResizeObserver`: use [resizeObserver](src/sensors/resizeObserver.js) to observe element's size.~~
+ - `ResizeObserver`: use [resizeObserver](src/sensors/resizeObserver.js) to observe element's size.
  - `object`: use [object](src/sensors/object.js) document's resize event.
 
-~~If `ResizeObserver` exists, use it, else use `object` as default.~~
+If `ResizeObserver` exists, use it, else use `object` as default.
 
 
 
-## Reference
+## Let me know
 
 Online demo click [here](https://git.hust.cc/size-sensor). Rewritten and optimized from [KyleAMathews/element-resize-event](https://github.com/KyleAMathews/element-resize-event).
 
