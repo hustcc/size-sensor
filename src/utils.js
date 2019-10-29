@@ -4,7 +4,7 @@
  */
 
 /**
- * 是否是 ie，对于 ie 这种东西需要有额外处理！
+ * whether is ie, should do something special for ie
  * @returns {RegExpMatchArray | null}
  */
 export const isIE = () => navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/Edge/);

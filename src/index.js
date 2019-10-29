@@ -6,24 +6,24 @@
 import { getSensor, removeSensor } from './sensorPool';
 
 /**
- * 对外暴露的 bind 方法
+ * bind an element with resize callback function
  * @param {*} element
  * @param {*} cb
  */
 export const bind = (element, cb) => {
   const sensor = getSensor(element);
 
-  // 绑定新的方法
+  // listen with callback
   sensor.bind(cb);
 
-  // 返回 unbind 方法
+  // return unbind function
   return () => {
     sensor.unbind(cb);
   };
 };
 
 /**
- * 清空一个 element 中的所有监听
+ * clear all the listener and sensor of an element
  * @param element
  */
 export const clear = element => {
