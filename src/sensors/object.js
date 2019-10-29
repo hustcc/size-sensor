@@ -7,17 +7,16 @@ import debounce from '../debounce';
 import { SensorStyle, SensorClassName, SensorTabIndex } from '../constant';
 
 export const createSensor = element => {
-  // 感应器
   let sensor = undefined;
   // callback
   let listeners = [];
 
   /**
-   * 创建 sensor 的 object DOM
+   * create object DOM of sensor
    * @returns {HTMLObjectElement}
    */
   const newSensor = () => {
-    // 调整样式
+    // adjust style
     if (getComputedStyle(element).position === 'static') {
       element.style.position = 'relative'
     }
@@ -33,29 +32,29 @@ export const createSensor = element => {
     obj.setAttribute('tabindex', SensorTabIndex);
     obj.type = 'text/html';
 
-    // 添加到 dom 结构中
+    // append into dom
     element.appendChild(obj);
-    // 对于 ie 需要滞后，否则白屏，所以放到后面
+    // for ie, should set data attribute delay, or will be white screen
     obj.data = 'about:blank';
     return obj;
   };
 
   /**
-   * 统一触发 listeners
+   * trigger listeners
    */
   const resizeListener = debounce(() => {
-    // 依次触发执行
+    // trigger all listener
     listeners.forEach(listener => {
       listener(element);
     })
   });
 
   /**
-   * 监听某一个 callback
+   * listen with one callback function
    * @param cb
    */
   const bind = cb => {
-    // 如果不存在 sensor，则创建一个 object
+    // if not exist sensor, then create one
     if (!sensor) {
       sensor = newSensor();
     }
@@ -66,24 +65,24 @@ export const createSensor = element => {
   };
 
   /**
-   * 完全 destroy
+   * destroy all
    */
   const destroy = () => {
     if (sensor && sensor.parentNode) {
       if (sensor.contentDocument) {
-        // 移除事件
+        // remote event
         sensor.contentDocument.defaultView.removeEventListener('resize', resizeListener);
       }
-      // 移除 dom
+      // remove dom
       sensor.parentNode.removeChild(sensor);
-      // 初始化
+      // initial variable
       sensor = undefined;
       listeners = [];
     }
   };
 
   /**
-   * 取消绑定
+   * cancel listener bind
    * @param cb
    */
   const unbind = cb => {
@@ -92,8 +91,8 @@ export const createSensor = element => {
       listeners.splice(idx, 1);
     }
 
-    // 不存在 listener，并且存在 sensor object
-    // 则移除 object
+    // no listener, and sensor is exist
+    // then destroy the sensor
     if (listeners.length === 0 && sensor) {
       destroy();
     }

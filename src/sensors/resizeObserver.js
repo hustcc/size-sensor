@@ -6,37 +6,36 @@
 import debounce from '../debounce';
 
 export const createSensor = element => {
-  // 感应器
   let sensor = undefined;
   // callback
   let listeners = [];
 
   /**
-   * 统一触发 listeners
+   * trigger listeners
    */
   const resizeListener = debounce(() => {
-    // 依次触发执行
+    // trigger all
     listeners.forEach(listener => {
       listener(element);
     })
   });
 
   /**
-   * 创建 sensor 的 object DOM
-   * @returns {HTMLObjectElement}
+   * create ResizeObserver sensor
+   * @returns
    */
   const newSensor = () => {
-    const sensor = new ResizeObserver(resizeListener);
-    // 监听 element
-    sensor.observe(element);
+    const s = new ResizeObserver(resizeListener);
+    // listen element
+    s.observe(element);
 
-    // 直接触发一次
+    // trigger once
     resizeListener();
-    return sensor;
+    return s;
   };
 
   /**
-   * 监听某一个 callback
+   * listen with callback
    * @param cb
    */
   const bind = cb => {
@@ -50,7 +49,7 @@ export const createSensor = element => {
   };
 
   /**
-   * 完全 destroy
+   * destroy
    */
   const destroy = () => {
     sensor.disconnect();
@@ -60,7 +59,7 @@ export const createSensor = element => {
   };
 
   /**
-   * 取消绑定
+   * cancel bind
    * @param cb
    */
   const unbind = cb => {
@@ -69,8 +68,8 @@ export const createSensor = element => {
       listeners.splice(idx, 1);
     }
 
-    // 不存在 listener，并且存在 sensor object
-    // 则移除 object
+    // no listener, and sensor is exist
+    // then destroy the sensor
     if (listeners.length === 0 && sensor) {
       destroy();
     }

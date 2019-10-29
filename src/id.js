@@ -5,4 +5,8 @@
 
 let id = 1;
 
+/**
+ * generate unique id in application
+ * @return {string}
+ */
 export default () => `${id ++}`;

@@ -9,29 +9,29 @@ import { SizeSensorId } from './constant';
 
 /**
  * all the sensor objects.
- * 传感器池子
+ * sensor pool
  */
 const Sensors = {};
 
 /**
- * 获取 sensor
+ * get one sensor
  * @param element
  * @returns {*}
  */
 export const getSensor = element => {
   const sensorId = element.getAttribute(SizeSensorId);
 
-  // 1. 已经存在，则直接取这个 sensor
+  // 1. if the sensor exists, then use it
   if (sensorId && Sensors[sensorId]) {
     return Sensors[sensorId];
   }
 
-  // 2. 不存在则创建
+  // 2. not exist, then create one
   const newId = id();
   element.setAttribute(SizeSensorId, newId);
 
   const sensor = createSensor(element);
-  // 添加到池子中
+  // add sensor into pool
   Sensors[newId] = sensor;
 
   return sensor;
@@ -44,12 +44,12 @@ export const getSensor = element => {
 export const removeSensor = sensor => {
   const sensorId = sensor.element.getAttribute(SizeSensorId);
 
-  // 移除 attribute
+  // remove attribute
   sensor.element.removeAttribute(SizeSensorId);
-  // 移除 sensor 对应的 事件 和 dom 结构
+  // remove event, dom of the sensor used
   sensor.destroy();
 
-  // 存在则从 pool 中移除
+  // exist, then remove from pool
   if (sensorId && Sensors[sensorId]) {
     delete Sensors[sensorId];
   }
