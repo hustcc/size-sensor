@@ -5,7 +5,7 @@
 > DOM 元素尺寸监听器，当元素尺寸变化的时候，将会触发回调函数！
 
 
-[![Build Status](https://travis-ci.org/hustcc/size-sensor.svg?branch=master)](https://travis-ci.org/hustcc/size-sensor)
+[![Build Status](https://github.com/hustcc/size-sensor/workflows/build/badge.svg)](https://github.com/hustcc/size-sensor/actions)
 [![npm](https://img.shields.io/npm/v/size-sensor.svg)](https://www.npmjs.com/package/size-sensor)
 [![npm](https://img.shields.io/npm/dm/size-sensor.svg)](https://www.npmjs.com/package/size-sensor)
 [![gzip](http://img.badgesize.io/https://unpkg.com/size-sensor/dist/size-sensor.min.js?compression=gzip)](https://unpkg.com/size-sensor/dist/size-sensor.min.js)
