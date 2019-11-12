@@ -102,9 +102,7 @@ If `ResizeObserver` exists, use it, else use `object` as default.
 
 ## Let me know
 
-Online demo click [here](https://git.hust.cc/size-sensor). Rewritten and optimized from [KyleAMathews/element-resize-event](https://github.com/KyleAMathews/element-resize-event).
-
-Used By:
+Online demo click [here](https://git.hust.cc/size-sensor). Used By:
 
  - [hustcc/echarts-for-react](https://github.com/hustcc/echarts-for-react)
  - [hustcc/canvas-nest.js](https://github.com/hustcc/canvas-nest.js)
