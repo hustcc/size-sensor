@@ -5,6 +5,7 @@ site
 doc
 demo
 src
+.github
 .gitignore
 .travis.yml
 .babelrc
