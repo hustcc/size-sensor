@@ -27,7 +27,16 @@ export const createSensor = element => {
       // 直接触发一次 resize
       resizeListener();
     };
-    obj.setAttribute('style', SensorStyle);
+    obj.style.display = 'block'
+    obj.style.position = 'absolute'
+    obj.style.top = '0'
+    obj.style.left = '0'
+    obj.style.height = '100%'
+    obj.style.width = 'auto'
+    obj.style.overflow = 'hidden'
+    obj.style.pointerEvents = 'none'
+    obj.style.zIndex = '-1'
+    obj.style.opacity = '0'
     obj.setAttribute('class', SensorClassName);
     obj.setAttribute('tabindex', SensorTabIndex);
     obj.type = 'text/html';
