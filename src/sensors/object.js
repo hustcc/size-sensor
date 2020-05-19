@@ -4,7 +4,7 @@
  */
 
 import debounce from '../debounce';
-import { SensorStyle, SensorClassName, SensorTabIndex } from '../constant';
+import { SensorClassName, SensorTabIndex } from '../constant';
 
 export const createSensor = element => {
   let sensor = undefined;
@@ -32,7 +32,7 @@ export const createSensor = element => {
     obj.style.top = '0'
     obj.style.left = '0'
     obj.style.height = '100%'
-    obj.style.width = 'auto'
+    obj.style.width = '100%'
     obj.style.overflow = 'hidden'
     obj.style.pointerEvents = 'none'
     obj.style.zIndex = '-1'
