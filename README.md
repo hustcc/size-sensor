@@ -104,9 +104,9 @@ If `ResizeObserver` exists, use it, else use `object` as default.
 
 Online demo click [here](https://git.hust.cc/size-sensor). Used By:
 
+ - [antvis/G2Plot](https://github.com/antvis/G2Plot)
  - [hustcc/echarts-for-react](https://github.com/hustcc/echarts-for-react)
  - [hustcc/canvas-nest.js](https://github.com/hustcc/canvas-nest.js)
- - [antvis/x6](https://github.com/antvis/x6)
 
 
 
