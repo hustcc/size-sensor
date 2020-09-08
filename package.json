@@ -9,12 +9,13 @@
     "test": "cross-env NODE_ENV=babel jest",
     "build:umd": "rimraf ./dist && cross-env NODE_ENV=rollup rollup -c",
     "build:lib": "rimraf ./lib && cross-env NODE_ENV=babel babel src -d lib",
-    "build": "npm run build:umd && npm run build:lib && size-limit"
+    "build": "npm run build:umd && npm run build:lib && limit-size"
   },
-  "size-limit": [
+  "limit-size": [
     {
       "limit": "1 KB",
-      "path": "dist/size-sensor.min.js"
+      "path": "dist/size-sensor.min.js",
+      "gzip": true
     }
   ],
   "repository": {
@@ -37,12 +38,12 @@
     "cross-env": "^5.1.3",
     "jest": "^24.9.0",
     "jest-electron": "^0.1.6",
+    "limit-size": "^0.1.2",
     "rimraf": "^2.6.2",
     "rollup": "^1.21.4",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-uglify": "^6.0.3",
-    "size-limit": "^0.18.2"
+    "rollup-plugin-uglify": "^6.0.3"
   },
   "jest": {
     "runner": "jest-electron/runner",
