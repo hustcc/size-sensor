@@ -3,7 +3,8 @@
  * Contract: i@hust.cc
  */
 
-import { getSensor, removeSensor } from './sensorPool';
+import { Sensors } from './constant';
+import { getSensor } from './sensorPool';
 
 /**
  * bind an element with resize callback function
@@ -27,9 +28,10 @@ export const bind = (element, cb) => {
  * @param element
  */
 export const clear = element => {
-  const sensor = getSensor(element);
-
-  removeSensor(sensor);
+  const sensor = Sensors.get(element);
+  if (sensor) {
+    sensor.destroy();
+  }
 };
 
 export const ver = '__VERSION__';

@@ -18,6 +18,7 @@ describe('unbind', () => {
 
   test('unbind', () => {
     const unbind = bind(wrapper, () => {});
+    const unbind2 = bind(wrapper, () => {});
     expect(wrapper.getAttribute('size-sensor-id')).not.toBeNull();
 
     unbind();

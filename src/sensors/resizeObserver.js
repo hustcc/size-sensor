@@ -3,6 +3,7 @@
  * Contract: i@hust.cc
  */
 
+import { Sensors, SizeSensorId } from '../constant';
 import debounce from '../debounce';
 
 export const createSensor = element => {
@@ -56,6 +57,8 @@ export const createSensor = element => {
 
     listeners = [];
     sensor = undefined;
+    element.removeAttribute(SizeSensorId);
+    Sensors.delete(element);
   };
 
   /**

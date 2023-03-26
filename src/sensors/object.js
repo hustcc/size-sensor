@@ -4,7 +4,7 @@
  */
 
 import debounce from '../debounce';
-import { SensorClassName, SensorTabIndex } from '../constant';
+import { SensorClassName, SensorTabIndex, Sensors, SizeSensorId } from '../constant';
 
 export const createSensor = element => {
   let sensor = undefined;
@@ -87,6 +87,8 @@ export const createSensor = element => {
       // initial variable
       sensor = undefined;
       listeners = [];
+      element.removeAttribute(SizeSensorId);
+      Sensors.delete(element)
     }
   };
 

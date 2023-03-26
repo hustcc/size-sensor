@@ -8,3 +8,5 @@ export const SizeSensorId = 'size-sensor-id';
 export const SensorClassName = 'size-sensor-object';
 
 export const SensorTabIndex = '-1';
+
+export const Sensors = new WeakMap();
