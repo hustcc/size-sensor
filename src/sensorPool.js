@@ -11,7 +11,17 @@ import { SizeSensorId } from './constant';
  * all the sensor objects.
  * sensor pool
  */
-const Sensors = {};
+export const Sensors = {};
+
+/**
+ * When destroy the sensor, remove it from the pool
+ */
+function clean(sensorId) {
+  // exist, then remove from pool
+  if (sensorId && Sensors[sensorId]) {
+    delete Sensors[sensorId];
+  }
+}
 
 /**
  * get one sensor
@@ -30,7 +40,7 @@ export const getSensor = element => {
   const newId = id();
   element.setAttribute(SizeSensorId, newId);
 
-  const sensor = createSensor(element);
+  const sensor = createSensor(element, () => clean(newId));
   // add sensor into pool
   Sensors[newId] = sensor;
 
@@ -43,14 +53,8 @@ export const getSensor = element => {
  */
 export const removeSensor = sensor => {
   const sensorId = sensor.element.getAttribute(SizeSensorId);
-
-  // remove attribute
-  sensor.element.removeAttribute(SizeSensorId);
   // remove event, dom of the sensor used
   sensor.destroy();
 
-  // exist, then remove from pool
-  if (sensorId && Sensors[sensorId]) {
-    delete Sensors[sensorId];
-  }
+  clean(sensorId);
 };

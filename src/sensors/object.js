@@ -4,9 +4,9 @@
  */
 
 import debounce from '../debounce';
-import { SensorClassName, SensorTabIndex } from '../constant';
+import { SensorClassName, SensorTabIndex, SizeSensorId } from '../constant';
 
-export const createSensor = element => {
+export const createSensor = (element, whenDestroy) => {
   let sensor = undefined;
   // callback
   let listeners = [];
@@ -85,8 +85,10 @@ export const createSensor = element => {
       // remove dom
       sensor.parentNode.removeChild(sensor);
       // initial variable
+      element.removeAttribute(SizeSensorId);
       sensor = undefined;
       listeners = [];
+      whenDestroy && whenDestroy();
     }
   };
 

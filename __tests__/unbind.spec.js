@@ -21,6 +21,6 @@ describe('unbind', () => {
     expect(wrapper.getAttribute('size-sensor-id')).not.toBeNull();
 
     unbind();
-    expect(wrapper.getAttribute('size-sensor-id')).not.toBeNull();
+    expect(wrapper.getAttribute('size-sensor-id')).toBeNull();
   });
 });

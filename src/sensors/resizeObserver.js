@@ -3,9 +3,10 @@
  * Contract: i@hust.cc
  */
 
+import { SizeSensorId } from '../constant';
 import debounce from '../debounce';
 
-export const createSensor = element => {
+export const createSensor = (element, whenDestroy) => {
   let sensor = undefined;
   // callback
   let listeners = [];
@@ -56,6 +57,8 @@ export const createSensor = element => {
 
     listeners = [];
     sensor = undefined;
+    element.removeAttribute(SizeSensorId);
+    whenDestroy && whenDestroy();
   };
 
   /**
