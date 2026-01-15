@@ -53,7 +53,9 @@ export const createSensor = (element, whenDestroy) => {
    * destroy
    */
   const destroy = () => {
-    sensor.disconnect();
+    if (sensor) {
+      sensor.disconnect();
+    }
 
     listeners = [];
     sensor = undefined;
