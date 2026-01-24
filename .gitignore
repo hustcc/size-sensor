@@ -5,3 +5,4 @@ coverage
 lib
 test-results/
 playwright-report/
+package-lock.json
