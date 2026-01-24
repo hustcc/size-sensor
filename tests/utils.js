@@ -1,7 +1,7 @@
 /**
  * Utility function to inject CSS styles into the page
  */
-export async function injectStyle(page, styleText) {
+async function injectStyle(page, styleText) {
   const CSS = styleText || `
 #wrapper {
   position: relative; 
@@ -31,3 +31,5 @@ export async function injectStyle(page, styleText) {
     document.head.appendChild(style);
   }, CSS);
 }
+
+module.exports = { injectStyle };
