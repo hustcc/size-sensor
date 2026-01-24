@@ -1,9 +1,13 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'fs';
-import { join } from 'path';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Read the built UMD bundle
-const sizeSensorBundle = readFileSync(join(__dirname, '../dist/size-sensor.min.js'), 'utf8');
+const sizeSensorBundle = readFileSync(path.join(__dirname, '../dist/size-sensor.min.js'), 'utf8');
 
 test.describe('#17', () => {
   test('memory leak', async ({ page }) => {
