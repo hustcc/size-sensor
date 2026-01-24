@@ -3,3 +3,6 @@ npm-debug.*
 .idea
 coverage
 lib
+test-results/
+playwright-report/
+playwright/.cache/
