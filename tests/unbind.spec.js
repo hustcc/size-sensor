@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require('./test-setup');
 const path = require('path');
 
 test.describe('unbind', () => {
