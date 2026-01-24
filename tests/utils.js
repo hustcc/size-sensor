@@ -22,12 +22,7 @@ async function injectStyle(page, styleText) {
   await page.evaluate((css) => {
     const style = document.createElement('style');
     style.type = 'text/css';
-    
-    if (style.styleSheet) {
-      style.styleSheet.cssText = css;
-    } else {
-      style.appendChild(document.createTextNode(css));
-    }
+    style.appendChild(document.createTextNode(css));
     document.head.appendChild(style);
   }, CSS);
 }
