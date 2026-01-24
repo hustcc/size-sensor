@@ -9,12 +9,14 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        # Updated from [8.x, 10.x, 12.x] to [20.x] to fix build failure on macOS arm64 runners.
+        # Node 8.x is not available on macOS arm64 architecture.
+        node-version: [20.x]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
